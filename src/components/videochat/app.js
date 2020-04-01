@@ -8,6 +8,7 @@ import Cookies from 'js-cookie'
 import {Link, Redirect } from "react-router-dom";
 import Logo from '../logo'
 
+import baseUrl from './../../config'
 
 import { Paper, IconButton, CircularProgress} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -113,7 +114,7 @@ class ElemenetsCall extends Component {
                 // after the decimal.
             let id = Math.random().toString(36).substr(3, 5);
             this.setState({user: {prenom: this.patientId}})
-            Axios.post(`http://localhost:4300/video-call/patient`, { id: id, name: this.patientId})
+            Axios.post(`${baseUrl.node}video-call/patient`, { id: id, name: this.patientId})
             .then((res) => {
             this.setupPusher(res.data.token);
             }).catch((r) => console.error(r))
@@ -175,7 +176,7 @@ class ElemenetsCall extends Component {
 
     setupPusher(token) {
         this.pusher = new Pusher('2e923196325bd5eddb8c', {
-            authEndpoint: 'http://localhost:4300/video-call/start',
+            authEndpoint: `${baseUrl.node}video-call/start`,
             cluster: 'eu',
             auth: {
                 params: this.state.user.prenom,

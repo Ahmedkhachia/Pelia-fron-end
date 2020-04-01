@@ -204,7 +204,7 @@ let HomeContent = {
                 title:{fr:"Attendez votre tour" ,ar:"انتظر دورك"},
                 date:{fr:"Deuxième étape", ar:"الخطوة الثانية"},
                  body :{
-                     fr:"Après avoir envoyé un SMS. Notre système vous mettra sur la liste d'attente lorsque tous les patients devant vous partiront et qu'un médecin deviendra libre, vous serez averti pour entrer en contact avec lui." ,
+                     fr:"Après avoir envoyé un message Whatsapp. Notre système vous mettra sur la liste d'attente lorsque tous les patients devant vous partiront et qu'un médecin deviendra libre, vous serez averti pour entrer en contact avec lui." ,
                   ar:"بعد إرسالك لرسالة نصية. سيضعك نظامنا في قائمة الانتظار عندما يرحل جميع المرضى أمامك ويصبح الطبيب مجانيًا ، سيتم إبلاغك"
                 }
                 },

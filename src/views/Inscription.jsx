@@ -28,7 +28,7 @@ import Success from './../components/success'
 import Cookies from 'js-cookie'
 import { useState } from 'react';
 
-
+import baseUrl from './../config'
 let lang = Cookies.get('lang')
 lang = (lang === undefined)? "fr" : lang
 
@@ -134,7 +134,7 @@ class ElementForm extends Component  {
              ){
                 let data = this.traitementDonnee();
                 console.log(data)
-                Axios.post(`http://localhost:8000/api/register` , data, {headers: {'Content-Type': 'application/json'}})
+                Axios.post(`${baseUrl.lumen}api/register` , data, {headers: {'Content-Type': 'application/json'}})
                 .then(res => {
                     this.setState({sending: false, success:true});
                     setTimeout(() => {
@@ -216,6 +216,7 @@ class ElementForm extends Component  {
         formData.prenom=this.state.prenom
         formData.ville=this.state.ville
         formData.password=this.state.password
+        formData.password_confirmation = this.state.password_confirmation
         return formData;
     }
  
@@ -496,6 +497,6 @@ const villes = [
     { name: 'El jadida', isActive: true },
     { name: 'Safi', isActive: true },
     { name: 'Youssoufia', isActive: true },
-    { name: 'khribga', isActive: true },
+    { name: 'Khouribga', isActive: true },
     { name: "Laayoune", isActive: true }
-  ];
+];

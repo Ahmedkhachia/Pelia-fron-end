@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import { Col,Row, Alert, Collapse, Container } from 'react-bootstrap';
 
 import Axios  from 'axios';
+import baseUrl from './../config'
 
 
 import {FaLongArrowAltRight} from 'react-icons/fa'
@@ -21,7 +22,7 @@ export default function Contact() {
                 objet: objet,
                 message: body
             }
-            Axios.post(`http://localhost:8000/api/contact` , data, {headers: {'Content-Type': 'application/json'}})
+            Axios.post(`${baseUrl.lumen}api/contact` , data, {headers: {'Content-Type': 'application/json'}})
             .then(res => {
             setMessageEnvoye(true)
             setEmail("")

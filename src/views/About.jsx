@@ -166,7 +166,7 @@ let content = {
         title:{fr:"Une équipe pluridisciplinaire",ar:"فريق متعدد التخصصات"},
         body:[
             {
-                fr:"Nous sommes une équipe constituée de 4 développeurs web*; Future lauréats de l'école Youcode située à la ville youssoufia. Chacun d'entre nous est issu d'une origine différente ce qui donne la force à notre équipe dans tous les domaines nécessaires pour la proposition de solution parfaitement adaptées à vos besoins et pour faciliter vos tâches de la vie quotidienne",
+                fr:"Nous sommes une équipe constituée de 4 développeurs web. Futurs lauréats de l'école Youcode située à la ville Youssoufia. Chacun d'entre nous est issu d'une origine différente ce qui donne la force à notre équipe dans tous les domaines nécessaires pour la proposition de solution parfaitement adaptées à vos besoins et pour faciliter vos tâches de la vie quotidienne",
                 ar:"نحن فريق مكون من 4 مبرمجين ويب خرجين مدرسة Youcode هذه السنة الواقعة في مدينة اليوسفية. كل منا قد اتى من خلفيات و أصول مختلفة مما يعطي القوة لفريقنا في جميع المجالات الضرورية لنقدم لك حلولًا مناسبة تمامًا لاحتياجاتك ولتيسير مهام حياتك يوميا"
             }
         ]
@@ -175,7 +175,7 @@ let content = {
     motivation:{
         title:{fr:"La motivation qui nous a poussé à créer " ,ar:"الدافع الذي دفعنا إلى إنشاء"},
         body:{
-            fr:"En pleine réflexion sur une manière pour contribuer dans les efforts faits par l'état et les acteurs dans les domaine de santé, la sureté nationale, le commerce et tout les secteurs publics. Et afin d'affronter le risque lié à la propagation du virus COVID-19 dans la royaume. on a remarqué que la majorité des médecins sont soit fermé pendant cette periode soit tous simplement trop occupée par les perssone contaminées. C'est pour cela qu'on a mis en place cette plateforme qui vas aider les patient à rencontrée leurs médecins.",
+            fr:"En pleine réflexion sur une manière pour contribuer dans les efforts faits par l'état et les acteurs dans les domaine de santé, la sureté nationale, le commerce et tout les secteurs publics et afin d'affronter le risque lié à la propagation du virus COVID-19 dans la royaume, on a remarqué que la majorité des médecins sont soit fermé pendant cette periode soit tous simplement trop occupée par les perssone contaminées. C'est pour cela qu'on a mis en place cette plateforme qui vas aider les patient à rencontrée leurs médecins.",
             ar:"في خضم التفكير في طريقة للمساهمة في الجهود التي تبذلها الدولة والجهات الفاعلة في المجال الصحي ، الأمن القومي والتجارة وجميع القطاعات العامة. لمواجهة المخاطر المتعلقة بانتشار فيروس COVID-19 في المملكة. لاحظنا أن أغلبية الأطباء إما مغلقة خلال هذه الفترة أو كله مشغول للغاية مع الأشخاص الملوثين. هذا هو السبب في إنشاء هذه المنصة التي ستساعد المرضى على مقابلة أطبائهم."
         }
     },
