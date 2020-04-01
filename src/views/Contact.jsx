@@ -10,17 +10,7 @@ import Cookies from 'js-cookie'
 let lang = Cookies.get('lang')
 lang = (lang === undefined)? "fr" : lang
 
-let style = (lang === "ar")? {
-    all:{
-        direction: 'rtl'
-    },
-    text:{
-        textAlign:'right'
-    },
- 
-}: {
 
-}
 
 export default function Contact() {
 

@@ -144,16 +144,16 @@ function Comment(){
 
 
 let content = {
-    title:{fr:"Bienvenue chère médecins, l'humanité a vraiment besoin de vous pendant ces périodes ",ar:"مرحبا بكم أيها الأطباء الأعزاء ، الإنسانية بحاجة إليك حقا خلال هذه الأوقات"},
-    subtitle:{fr:"Ici on vous propose l'opportunité d'aider des milliers de gens durant cette quarantine", ar:"هنا نقدم لك الفرصة لمساعدة آلاف الأشخاص خلال هذا الحجر الصحي"},
+    title:{fr:"Bienvenue chers médecins. On a encore plus besoin de vous en cette période",ar:"نرحب الأطباء الأعزاء. نحتاجك أكثر خلال هذا الوقت"},
+    subtitle:{fr:"Ici on vous propose l'opportunité d'aider des milliers de gens durant cette quarantaine.", ar:"هنا نقدم لك الفرصة لمساعدة آلاف الأشخاص خلال هذا الحجر الصحي"},
     what:{
         title:{fr:"La quarantaine pose de nombreux problèmes " ,ar:"الحجر الصحي يطرح العديد من المشاكل"},
         body:{
             fr:[
-                <p style={{fontSize: "16px",fontFamily:'Poppins'}} key={0}>Au mépris des mesures de limitation de la propagation du virus Covid-19, le gouvernement marocaina prit un arrêté municipal interdisant tout regroupement ainsi que la fermeture de nombreux magasins, y compris ceux de certaines cliniques et cabinet médical, afin de limiter la circulation des personnes et freiner la propagation de l'épidémie.</p>, 
+                <p style={{fontSize: "16px",fontFamily:'Poppins'}} key={0}>Au mépris des mesures de limitation de la propagation du virus Covid-19, le gouvernement marocaina pris un arrêté municipal interdisant tout regroupement ainsi que la fermeture de nombreux commerces. afin de limiter la circulation des personnes et freiner la propagation de l'épidémie.</p>, 
                 <p style={{fontSize: "16px",fontFamily:'Poppins'}} key={1}>Ce qui a conduit à de nombreuses difficultés pour les gens de trouver ou de consulter un médecin pour obtenir des conseils médicaux, sachant qu'au cours de la même période, le désir de ces personnes de parler à leur médecin a augmenté en raison de leur grande crainte sur leur santé.</p>,
                 <p style={{fontSize: "16px",fontFamily:'Poppins'}} key={2}>Pour remédier à ces problèmes le ministère de la Santé a attribué un service supplémentaire pour communiquer et fournir des informations sur la maladie de Covid-19. Il est lié au service médical d'urgence «allô SAMU 141», en plus du service «Alo Epidemic Alert» 080 100 47 47, qui était auparavant activé au niveau du Centre National des opérations d'Urgence de Santé Publique.</p>,
-                <p style={{fontSize: "16px",fontFamily:'Poppins'}} key={3}>Le lancement de ce service intervient après une pression croissante sur le centre d'appels pour le service d'alerte épidémique, mais le problème est que ces deux services ne peuvent pas répondre à tous les besoins des citoyens, ils atteignent donc des milliers d'appels toutes les heures.</p>
+                <p style={{fontSize: "16px",fontFamily:'Poppins'}} key={3}>Le lancement de ce service intervient après une pression croissante sur le centre d'appels pour le service d'alerte épidémique, mais le problème est que ces deux services ne peuvent pas répondre à tous les besoins des citoyens. Ils atteignent donc des milliers d'appels par jours.</p>
         ],
             ar: [
                 <p key={0}> في ضل تفشي وباء كورونا قررت الحكومة المغربية حظر التجوال وغلق العديد من المحلات بما في دلك بعض العيادات و المستوصفات للحد من حركة الناس و كبح انتشار الوباء. مما ادى لصعوبات عديدة في اجاد او الوصول لطبيب من اجل استشارة طبية من طرف الساكنة علما انه في نفس هته الفترة تزايدة رغبات هؤلاء على التكلم مع اطبائهم اثر خوفهم الكبير على صحتهم.</p>,
@@ -170,7 +170,7 @@ let content = {
         },
         body:{
             fr:[
-                <p style={{fontSize: "16px",fontFamily:'Poppins'}} key={0}>Dans les mêmes orientations du ministère de la Santé en particulier et de l'État en général, le groupe Pelia a décidé de donner aux médecins la possibilité d'aider le ministère dans ses tâches en répondant aux questions des citoyens et en prenant soin de leur santé et qu'en appliquant WhatsApp, ce qui rend cette fonctionnalité facile à utiliser par tous les médecins grâce à l'adaptation de chacun Avec cette méthode. </p>
+                <p style={{fontSize: "16px",fontFamily:'Poppins'}} key={0}>Dans les mêmes orientations du ministère de la Santé en particulier et de l'État en général, le groupe Pelia a décidé de donner aux médecins la possibilité d'aider le ministère dans ses tâches en répondant aux questions des citoyens et en prenant soin de leur santé et qu'en appliquant WhatsApp, ce qui rend cette fonctionnalité facile à utiliser par tous les médecins grâce à l'adaptation de chacun avec cette méthode. </p>
             ],
             ar:[
                 <p style={{fontSize: "16px",fontFamily:'Poppins'}} key={0}>في نفس توجهات وزارة الصحة بصفة خاصة  و الدولة بصفة عامة قررت مجموعة Pelia منح الاطباء الفرصة  لمساعدة الوزارة في مهامها بالاجابة على اسئلة المواطنين و الاعتناء بصحتهم و الكشف على المريض لتشخيص المرض عن بعد باستخدام تطبيق الواتسابكوسيلة تواصل بينه وبين المريض مما يجعل هذه الميزة سهلة الاستعمال من طرف جميع الاطباء لتناسب الجميع مع هذه الوسيلة.</p>
@@ -181,7 +181,7 @@ let content = {
         title:{fr:"Téléconsultation : comment ça marche ? " ,ar:"تقديم استشارة عن بعد : كيف تعمل ؟"},
         body:{
             card1:{
-                title:{fr:"Inscription et confirmaton" ,ar:"التسجيل والتأكيد"}, 
+                title:{fr:"Inscription et confirmation" ,ar:"التسجيل والتأكيد"}, 
                 date:{fr:"Première étape", ar:"المرحلة الأولى"},
                 body :{
                     fr:"Entrez à la page d'inscription à partir du bouton \"nous rejoindre\" en haut et remplissez tous les champs du formulaire puis attendez la confirmation" ,
@@ -192,7 +192,7 @@ let content = {
                 title:{fr:"Une entrée à la session Pelia" ,ar:"WhatsApp على Pelia دخول إلى جلسة"},
                 date:{fr:"Deuxième étape", ar:"الخطوة الثانية"},
                  body :{
-                     fr:"Après avoir été accepté, vous aurez l'accès à la session des médecins où vous allez répondre aux questions des patients et diagnostiquer leurs états. Quand vous terminez votre discussion avec un patient, vous serez invités à termine la consultation en clôturant le ticket ouvert pour passer à la prochaine consultation" ,
+                     fr:"Après avoir été accepté, vous aurez l'accès à la session des médecins où vous allez répondre aux questions des patients et diagnostiquer leurs états. Quand vous terminez votre discussion avec un patient, vous serez invités à terminer la consultation en clôturant le ticket ouvert pour passer à la prochaine consultation" ,
                   ar:"بعد قبولك ، ستتمكن من الوصول إلى جلسة الأطباء على واتس اب حيث ستجيب على أسئلة المرضى وتشخص حالتهم. عند إنهاء مناقشتك مع مريض ، سيُطلب منك التحدث مع مريض آخر إذا كان هناك أي مريض ينتظر. لديك الحق في المغادرة في أي وقت "
                 }
                 },
@@ -200,8 +200,8 @@ let content = {
                 title:{fr:"Soyez en contact", ar:"تواصل مع مريضك"}, 
                 date:{fr:"Troisième étape", ar:"الخطوة الثالثة"},
                 body :{
-                    fr:"Maintenant vous êtes avec votre patient. Diagnostiqué leurs état comme s'il a été devant vous, prosper lui des médicaments si nécessaires et surtout soyez gentille et encourager les gens ils ont un petit peut peurs car ils ont une très grande confiance en vous" ,
-                    ar:"وانتهى الأمر الآن مع مريضك. يمكنك البدء في تشخيص حالته كما لو كان أمامك ، وتزويده بالأدوية إذا لزم الأمر وقبل كل شيء. كن لطيفًا معه و قم بتشجيع الأشخاص الذين لديهم خوف قليل لأنهم يثقون بك كثيرًا" 
+                    fr:"Maintenant, vous êtes avec votre patient. Diagnostiquer son état comme s'il était devant vous, prescrire des médicaments si nécessaire." ,
+                    ar:"أنت الآن مع مريضك. قم بتشخيص حالته كما لو كانت أمامك ، ووصف الدواء إذا لزم الأمر." 
                 }
             }
         }

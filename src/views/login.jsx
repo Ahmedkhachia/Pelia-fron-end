@@ -73,7 +73,7 @@ export default function SignInSide() {
     }
     Axios.post(`http://localhost:5000/login` , data, {headers: {'Content-Type': 'application/json'}})
     .then(res => {
-        Cookie.set("token",res.data.token);
+        Cookie.set("token",res.data.access_token);
         Cookie.set("user",res.data.user);
         Cookie.set("medecinAuth", res.data.user.nom)
         setAuthentified(true)

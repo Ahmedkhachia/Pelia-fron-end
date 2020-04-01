@@ -87,7 +87,7 @@ function NewsLetter () {
         let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         let emailValid = re.test(String(email).toLowerCase());
         if(emailValid){
-            Axios.post(`http://localhost:8000/api/newsletter` , {email: email}, {headers: {'Content-Type': 'application/json'}})
+            Axios.post(`http://localhost:8000/newsletter` , {email: email}, {headers: {'Content-Type': 'application/json'}})
             .then(res => {
                 setMessageEnvoye(true)
                 setEmail("")
@@ -110,7 +110,7 @@ function NewsLetter () {
                         :
                             <Paper component="form" onSubmit={handleSubmit}>
                             <InputBase
-                                placeholder="abc@example.ma"
+                                placeholder="abc@exemple.ma"
                                 inputProps={{ 'aria-label': 'inscription a la newsletter' }}
                                 onChange={handleChange}
                                 value={email}                                
@@ -146,16 +146,12 @@ let content = {
     newsletter:{
         title:{fr:"Manquez-vous d'informations?" ,ar:"هل تفتقر للمعلومات؟"},
         subtitle:{
-            fr:"En vous inscrivant à notre newsletter, vous serez abreuvés de connaissances tous les soirs!",
+            fr:"En vous inscrivant à notre newsletter, vous aurez des informations tout le temps",
             ar:"من خلال الاشتراك في النشرة الإخبارية ، ستحصل على المعرفة كل مساء! "
         },
         body:{
-            input:{
-                fr:"En pleine réflexion sur une manière pour contribuer dans les efforts faite par l'État et les acteurs dans les domaines de santé, la sureté nationale, le commerce et tous les secteurs publics. Afin d'affronter le risque lié à la propagation du virus COVID-19 dans le royaume. on a remarqué que la majorité des médecins sont soit fermé pendant cette période soit tout simplement trop occupée par les perssone contaminées. C'est pour cela qu'on a mis en place cette plateforme qui va aider les patients à rencontrer leurs médecins.",
-                ar:"في خضم التفكير في طريقة للمساهمة في الجهود التي تبذلها الدولة والجهات الفاعلة في المجال الصحي ، الأمن القومي والتجارة وجميع القطاعات العامة. لمواجهة المخاطر المتعلقة بانتشار فيروس COVID-19 في المملكة. لاحظنا أن أغلبية الأطباء إما مغلقة خلال هذه الفترة أو كله مشغول للغاية مع الأشخاص الملوثين. هذا هو السبب في إنشاء هذه المنصة التي ستساعد المرضى على مقابلة أطبائهم."
-            },
             validation:{
-                fr:"Votre souscription à la newsletter de Vision du Monde a bien été prise en compte, vous recevrez bientôt nos actualités dans votre boîte mail",
+                fr:"Votre souscription à la newsletter de Pelia a bien été prise en compte, vous recevrez bientôt nos actualités dans votre boîte mail",
                 ar:"تم أخذ اشتراكك في نشرة Pelia الإخبارية بعين الاعتبار ، وستتلقى قريبًا أخبارنا في صندوق بريدك"
             },
             traitement:{

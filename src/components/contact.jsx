@@ -21,7 +21,7 @@ export default function Contact() {
                 objet: objet,
                 message: body
             }
-            Axios.post(`http://localhost:8000/api/contact` , data, {headers: {'Content-Type': 'application/json'}})
+            Axios.post(`http://localhost:8000/contact` , data, {headers: {'Content-Type': 'application/json'}})
             .then(res => {
             setMessageEnvoye(true)
             setEmail("")
