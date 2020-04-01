@@ -12,6 +12,7 @@ import PeliaBanner from './../assets/img/pelia_banner.jpg'
 import Axios  from 'axios';
 import { Redirect, Link } from 'react-router-dom';
 import Cookie from 'js-cookie'
+import baseUrl from './../config'
 
 const useStyles = makeStyles(theme => ({
  
@@ -63,7 +64,7 @@ export default function SignInSide() {
       email:email,
       password:pass
     }
-    Axios.post(`http://localhost:4300/login` , data, {headers: {'Content-Type': 'application/json'}})
+    Axios.post(`${baseUrl.node}login` , data, {headers: {'Content-Type': 'application/json'}})
     .then(res => {
         console.log(res.data)
         Cookie.set("token",res.data.access_token);

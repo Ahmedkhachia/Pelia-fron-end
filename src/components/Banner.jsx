@@ -122,7 +122,7 @@ const content ={
         fr:" plus besoin de quitter votre domicile pour voir votre médecin"
     },{
         ar: " تقديم المشورة لك وتجعلك على دراية بمرضك" ,
-        fr:" vous conseille et vous sensibilise à props de votre maladie"
+        fr:" vous conseille et vous sensibilise à propos de votre maladie"
     }
 ],
     button: {ar:"ابدأ المغامرة", fr:"Commencer"},

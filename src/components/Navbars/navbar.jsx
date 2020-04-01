@@ -153,13 +153,13 @@ export default class NavbarPublic extends Component {
                                                     </span>
                                                   </Nav.Link> 
                                               </Nav.Item>
-                                              <Nav.Item className="py-4" as="li">
+                                              {/* <Nav.Item className="py-4" as="li">
                                               <Nav.Link style={{lineHeight: "0"}} className="inscription-btn" as={Link} href='/login' to="/login"> 
                                                   <span className="inscrire navbar-right btn_btn">
                                                   {content.inscription[lang]}
                                                   </span>
                                                 </Nav.Link> 
-                                              </Nav.Item>  
+                                              </Nav.Item>   */}
                                             </Nav>
                                           </Col>
                                       </Navbar.Collapse>
@@ -177,6 +177,6 @@ let content ={
     home:{fr:"Accueil", ar:"الرئيسية"},
     about:{fr:"A propos de nous", ar:"عنا"},
     contact:{fr:"Contactez-nous", ar:"اتصل بنا"},
-    inscription:{fr:"Nous Rejoindre", ar:"انضم إلينا"},
+    // inscription:{fr:"Nous Rejoindre", ar:"انضم إلينا"},
     medecin:{fr:"Vous êtes médecin?", ar:"هل انت طبيب"}
 }
