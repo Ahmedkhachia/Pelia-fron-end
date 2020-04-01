@@ -159,14 +159,14 @@ function Mission(){
 let content = {
     title:{fr:"Qui somme nous ?",ar:"من نحن ؟"},
     subtitle:{
-        fr:"À Pelia, nous pensons qu'ensemble, nous pouvons dépasser cette période critique",
-        ar:"  نعتقد أنه يمكننا معا تجاوز هذه الفترة الحرجة Pelia في"            
+        fr:"À Pelia, nous pensons qu'ensemble, nous pouvons dépasser cette période critique.",
+        ar:"  نعتقد أنه يمكننا معا تجاوز هذه الفترة الحرجة Pelia في."    
     },
     who:{
         title:{fr:"Une équipe pluridisciplinaire",ar:"فريق متعدد التخصصات"},
         body:[
             {
-                fr:"Nous sommes une équipe constituée de 4 développeurs web ressortissant cette année de l'école Youcode située à la ville youssoufia. Chacun d'entre nous est issu d'un background et d'origines différents ce qui donne la force à notre équipe dans tous les domaines nécessaires pour vous proposer des solutions parfaitement adaptées à vos besoins et pour faciliter vos tâches de la vie quotidienne",
+                fr:"Nous sommes une équipe constituée de 4 développeurs web*; Future lauréats de l'école Youcode située à la ville youssoufia. Chacun d'entre nous est issu d'une origine différente ce qui donne la force à notre équipe dans tous les domaines nécessaires pour la proposition de solution parfaitement adaptées à vos besoins et pour faciliter vos tâches de la vie quotidienne",
                 ar:"نحن فريق مكون من 4 مبرمجين ويب خرجين مدرسة Youcode هذه السنة الواقعة في مدينة اليوسفية. كل منا قد اتى من خلفيات و أصول مختلفة مما يعطي القوة لفريقنا في جميع المجالات الضرورية لنقدم لك حلولًا مناسبة تمامًا لاحتياجاتك ولتيسير مهام حياتك يوميا"
             }
         ]
@@ -175,7 +175,7 @@ let content = {
     motivation:{
         title:{fr:"La motivation qui nous a poussé à créer " ,ar:"الدافع الذي دفعنا إلى إنشاء"},
         body:{
-            fr:"En pleine réflexion sur une maniére pour contribuer dans les efforts faite par l'état et les acteurs dans les domaine de santé, la sureté nationale, le comerce et tout les secteurs publics. Afin d'affrontée le risque liée à la propagation du virus COVID-19 dans la royaume. on a remarqué que la majorité des médecins sont soit fermé pendant cette periode soit tous simplement trop occupée par les perssone contaminées. C'est pour cela qu'on a mis en place cette plateforme qui vas aider les patient à rencontrée leurs médecins.",
+            fr:"En pleine réflexion sur une manière pour contribuer dans les efforts faits par l'état et les acteurs dans les domaine de santé, la sureté nationale, le commerce et tout les secteurs publics. Et afin d'affronter le risque lié à la propagation du virus COVID-19 dans la royaume. on a remarqué que la majorité des médecins sont soit fermé pendant cette periode soit tous simplement trop occupée par les perssone contaminées. C'est pour cela qu'on a mis en place cette plateforme qui vas aider les patient à rencontrée leurs médecins.",
             ar:"في خضم التفكير في طريقة للمساهمة في الجهود التي تبذلها الدولة والجهات الفاعلة في المجال الصحي ، الأمن القومي والتجارة وجميع القطاعات العامة. لمواجهة المخاطر المتعلقة بانتشار فيروس COVID-19 في المملكة. لاحظنا أن أغلبية الأطباء إما مغلقة خلال هذه الفترة أو كله مشغول للغاية مع الأشخاص الملوثين. هذا هو السبب في إنشاء هذه المنصة التي ستساعد المرضى على مقابلة أطبائهم."
         }
     },
@@ -189,8 +189,8 @@ let content = {
     commencement:{
         title:{fr:"Comment tout a commencé" ,ar:"كيف بدأ كل شيء"},
         body:{
-            fr:"Lors d'un hackathon organisait au sein de notre école Youcode portée sur des sujets socials. nous avons eu l'idée d'aider les gens atteints d'aheurter pour gérer leurs médicaments afin d'avoir une autonomie et liberté. aprés on a participé avec cette idée dans plusieurs événements et depuis on n'a pas arrêté de l'améliorer et de l'adapter aux besoins de notre royaume, jusqu'à à ce qu'on est arrivé à une plateforme qui dédier pour rassembler les patients avec leurs médecins tout en faisant la gestion de leurs médicaments, en les rappelant par les temps de prise de ces dérnieret beaucoup d'autres choses. maintenant et vue cette période dur on a pensée à adapter notre plateforme pour qu'ils puissent contribuer à l'aide de l'état dans leurs missions à arrêter la vulgarisation du virus COVID-19",
-            ar:"خلال هاكاثون تم تنظيمه في مدرسة Youcode التي تركز على الموضوعات الاجتماعية. كانت لدينا فكرة مساعدة الناس المصابين بالزهيمر, لإدارة أدويتهم من أجل الحصول على الاستقلال والحرية. بعد أن شاركنا بهذه الفكرة في العديد من الأحداث وبما أننا لم نتوقف عن تحسينها وتكييفها مع احتياجات مملكتنا ، حتى وصلنا إلى منصة مخصصة تجمع المرضى مع أطبائهم, وكدلك إدارة أدويتهم ، وتذكيرهم بأوقات تناولها وأشياء أخرى كثيرة. الآن وبالنظر إلى هذه الفترة العصيبة ، فكرنا في تكييف برنامجنا بحيث يمكنهم المساهمة في مساعدة الدولة في مهامهم الهادفة لوقف انتشار وباء كورنا المستجد."
+            fr:"Lors d'un hackathon organisée au sein de notre école YouCode et qui portait sur des sujets sociaux, nous avons eu l'idée de travailler sur un projet qui vie à aider les gens atteints d'alzheimer et notament en ce qui concérne la prise de médicaments. Après, on participé avec ce projet dans plusieurs événements et depuis on n'a pas arrêté de l'améliorer et de l'adapter aux besoins de notre royaume, jusqu'à à ce qu'on soit arrivé à une plateforme qui dédiée pour lier les patients avec leurs médecins tout en faisant la gestion de leurs médicaments, en les rappelant par les temps de prise de ces dérniers beaucoup d'autres choses. Maintenant, et compte tenu de cette periode dur, on a pensée à adapter notre plateforme pour qu'elle puissent contribuer à l'aide de l'état dans sa mission à arrêter la vulgarisation du virus COVID-19.",
+            ar:"خلال هاكاثون تم تنظيمه في مدرسة YouCode التي تركز على الموضوعات الاجتماعية. كانت لدينا فكرة مساعدة الناس المصابين بالزهيمر, لإدارة أدويتهم من أجل الحصول على الاستقلال والحرية. بعد أن شاركنا بهذه الفكرة في العديد من الأحداث وبما أننا لم نتوقف عن تحسينها وتكييفها مع احتياجات مملكتنا ، حتى وصلنا إلى منصة مخصصة تجمع المرضى مع أطبائهم, وكدلك إدارة أدويتهم ، وتذكيرهم بأوقات تناولها وأشياء أخرى كثيرة. الآن وبالنظر إلى هذه الفترة العصيبة ، فكرنا في تكييف برنامجنا بحيث يمكنهم المساهمة في مساعدة الدولة في مهامهم الهادفة لوقف انتشار وباء كورنا المستجد."
         }
     },
     equipe: [

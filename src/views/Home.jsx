@@ -50,7 +50,6 @@ export default function Home() {
             <Container className="mt-5"> 
                 <Quois />
                 <Comment />
-               
             </Container>
             <Objectifs />
         </div>
@@ -136,7 +135,7 @@ function Comment(){
 function Objectifs (){
     
     return(
-        <section>
+        <section id="objectif">
             <div className="section-header wow fadeIn" data-wow-duration="700ms" data-wow-delay="500ms">
                 <h2 className="section-title wow bounceIn animated">
                     {HomeContent.objectifs.title[lang]} 

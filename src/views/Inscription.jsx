@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 
 import autoBind from 'react-autobind';
 
-import { FaMailBulk, FaPhone, FaUserMd, FaCity } from 'react-icons/fa';
+import { FaMailBulk, FaPhone, FaUserMd } from 'react-icons/fa';
 import { MdPersonAdd } from 'react-icons/md';
 
 import { Col,Row, Alert, Collapse } from 'react-bootstrap';
@@ -100,10 +100,10 @@ class ElementForm extends Component  {
         this.state={
             nom: "",
             prenom:"",
-            numero_telephone:"",
+            phone:"",
             email: "",
             password:"",
-            confirm: "",
+            password_confirmation: "",
             ville: "",
             fieldValidationErrors:{
                 nomError:false,
@@ -128,7 +128,7 @@ class ElementForm extends Component  {
             (!this.state.emailError) && 
             (this.state.nom !== "") && 
             (this.state.prenom !== "") && 
-            (this.state.numero_telephone !== "") && 
+            (this.state.phone !== "") && 
             (this.state.email !== "")&& 
             (this.state.sexe !== "")
              ){
@@ -148,7 +148,7 @@ class ElementForm extends Component  {
     }
 
     validateField(element){
-        let {fieldValidationErrors, nom, prenom, email, numero_telephone, password, confirm, ville} = this.state
+        let {fieldValidationErrors, nom, prenom, email, phone, password, password_confirmation, ville} = this.state
         switch (element.target.name) {
             case "nom":
              fieldValidationErrors.nomError= nom.length <= 2
@@ -172,8 +172,8 @@ class ElementForm extends Component  {
                      return true
                  }
              break;
-            case "numero_telephone":
-                fieldValidationErrors.numeroError= numero_telephone.length !== 16
+            case "phone":
+                fieldValidationErrors.numeroError= phone.length !== 16
                 this.setState({fieldValidationErrors: fieldValidationErrors})
                 if(fieldValidationErrors.numeroError){
                     return true
@@ -186,18 +186,17 @@ class ElementForm extends Component  {
                     return true
                 }
             break;
-            case "confirm":
-                fieldValidationErrors.confirm = confirm !== password
+            case "password_confirmation":
+                fieldValidationErrors.password_confirmation = password_confirmation !== password
                 this.setState({fieldValidationErrors: fieldValidationErrors})
-                if(fieldValidationErrors.confirm){
+                if(fieldValidationErrors.password_confirmation){
                     return true
                 }
             break;
             case "ville":
-                let ville = []
-                fieldValidationErrors.ville = ville !== password
+                fieldValidationErrors.villeError = ville.length <= 3
                 this.setState({fieldValidationErrors: fieldValidationErrors})
-                if(fieldValidationErrors.confirm){
+                if(fieldValidationErrors.password_confirmation){
                     return true
                 }
             break;
@@ -212,7 +211,7 @@ class ElementForm extends Component  {
         let formData={};
         
         formData.nom=this.state.nom
-        formData.phone=this.state.numero_telephone
+        formData.phone=this.state.phone
         formData.email=this.state.email
         formData.prenom=this.state.prenom
         formData.ville=this.state.ville
@@ -223,7 +222,7 @@ class ElementForm extends Component  {
 
     handleChange({target : {value, name}}) {
         
-        if(name === "numero_telephone"){
+        if(name === "phone"){
             value = value
             // Remove all non-digits, turn initial 33 into nothing
             .replace(/[^\d+]/g, '')
@@ -238,7 +237,7 @@ class ElementForm extends Component  {
 
   
     render(){
-        let {confirm, password, fieldValidationErrors, nom, prenom, numero_telephone, email, donneIncorecte, ville, success, sending} = this.state
+        let {password_confirmation, password, fieldValidationErrors, nom, prenom, phone, email, donneIncorecte, ville, success, sending} = this.state
     return (
         <ThemeProvider theme={theme}>     
             <form onSubmit={this.handleSubmit} autoComplete="off">
@@ -292,12 +291,12 @@ class ElementForm extends Component  {
                     <Row className="inscription-input" style={style.text}>
 
                         <PhoneField label={content.form.input_numero.label[lang]} Icone={FaPhone}
-                        name="numero_telephone"
+                        name="phone"
                         required={true}
                         error={fieldValidationErrors.numeroError}
                         InputLabelProps={style.inputLabel}
                         onBlur={this.validateField}
-                        value={numero_telephone}
+                        value={phone}
                         placeholder="+212 600 000 000"
                         onChange={this.handleChange} 
                         />
@@ -363,10 +362,10 @@ class ElementForm extends Component  {
                         <TextField
                             margin="normal"
                             required
-                            value={confirm}
+                            value={password_confirmation}
                             onChange={this.handleChange}
                             fullWidth
-                            name="confirm"
+                            name="password_confirmation"
                             label={content.form.input_confirm.label[lang]}
                             type="password"
                             id="password"
@@ -376,26 +375,15 @@ class ElementForm extends Component  {
                         />                    
                     </Row>
                     <Row className="inscription-input" style={style.text}>
-                        <Collapse in={fieldValidationErrors.confirm}>
+                        <Collapse in={fieldValidationErrors.password_confirmation}>
                             <div id="example-collapse-text">
                                 <Alert  variant="danger">
-                                {content.error.confirm[lang]}
+                                {content.error.password_confirmation[lang]}
                                 </Alert>
                             </div>
                         </Collapse>
                     </Row>
                     <Row className="inscription-input" style={style.text}>
-                        {/* <InpusField
-                        error={fieldValidationErrors.villeError}
-                        placeholder={content.form.input_ville.placeholder[lang]}
-                        label={content.form.input_ville.label[lang]} 
-                        Icone={FaCity}
-                        required={true}
-                        name="ville"
-                        InputLabelProps={style.inputLabel}
-                        onBlur={this.validateField} 
-                        value={ville}
-                        onChange={this.handleChange} /> */}
                           <FormControl fullWidth>
                             <InputLabel id="demo-simple-select-label">ville</InputLabel>
                             <Select
@@ -410,10 +398,17 @@ class ElementForm extends Component  {
                                         <MenuItem key={index} value={ville.name}>{ville.name}</MenuItem>
                                         ))
                                 }
-                            
-                            
                             </Select>
-      </FormControl>  
+                        </FormControl>  
+                    </Row>
+                    <Row className="inscription-input" style={style.text}>
+                    <Collapse in={fieldValidationErrors.villeError}>
+                        <div id="example-collapse-text">
+                            <Alert  variant="danger">
+                            {content.error.ville[lang]}
+                            </Alert>
+                        </div>
+                        </Collapse>
                     </Row>
                     <Row className="inscription-input" style={style.text}>
                         <Collapse in={donneIncorecte}>
@@ -446,13 +441,13 @@ class ElementForm extends Component  {
 let content = {
     title:{fr:"Bienvenue sur Pelia !", ar:"مرحبًا بك! Pelia!"},
     body:{
-        fr:"vous ne savez pas de quoi il s'agit? vous êtes pérdu ? vous pouvez toujours allez à la page d'accueil pour voir les discréption des fonctionnalitées qu'on propose à nos utilisateurs.", 
+        fr:"vous ne savez pas de quoi il s'agit? vous êtes pérdus ? vous pouvez toujours aller à la page d'accueil pour voir les description des fonctionnalités qu'on propose à nos utilisateurs.", 
         ar:"أنت لا تعرف من نحن؟ هل انت تائه وغير متيقن من تسجيلك؟ يمكنك دائمًا الانتقال إلى الصفحة الرئيسية لمعرفة الميزات التي نقدمها لمستخدمينا."
     },
     button:{fr:"voir la description", ar:"انظر الوصف"},
     form:{
         title:{fr:"Inscription à la plateforme Pelia", ar:"التسجيل في منصة Pelia"},
-        subtitle:{fr:"En nous rejoignant, vous aurez l'occasion de contribuer à aider l'humanité durant cette période difficile",
+        subtitle:{fr:"En nous rejoignant, vous aurez l'occasion de contribuer à aider de notre pays durant cette période difficile",
          ar:"من خلال الانضمام إلينا، ستتاح لك الفرصة للمساهمة في مساعدة البشرية خلال هذه الفترة الصعبة"},
         input_nom:{
             label:{fr:"nom", ar:"الاسم"},
@@ -484,13 +479,14 @@ let content = {
         button:{fr:"s'inscrire", ar:"تسجيل"}
     },
     error:{
-        nom:{fr:"vous devez entrer votre nom et doit contenir au moins 2 caractére", ar:"يجب إدخال اسمك ويجب أن يحتوي على حرفين على الأقل"},
-        prenom:{fr:"vous devez entrer votre prenom et doit contenir au moins 3 caractére", ar:"يجب إدخال اسمك الأول ويجب أن يحتوي على 3 أحرف على الأقل"},
+        nom:{fr:"vous devez entrer votre nom et doit contenir au moins 2 caractères", ar:"يجب إدخال اسمك ويجب أن يحتوي على حرفين على الأقل"},
+        prenom:{fr:"vous devez entrer votre prenom et doit contenir au moins 3 caractères", ar:"يجب إدخال اسمك الأول ويجب أن يحتوي على 3 أحرف على الأقل"},
         phone:{fr:"le numéro de telephone doit contenir 12 chiffres y compris +212 au début", ar:"يجب أن يحتوي رقم الهاتف على 12 رقمًا بما في ذلك +212 في البداية"},
         email:{fr:"Vous devez saisir une adresse e-mail valide au format standard" , ar:"يجب إدخال عنوان بريد إلكتروني صالح و بالشكل الموحد"},
         generale:{fr:"Une erreur est survenue lors de votre inscription, merci de réessayer ultérieurement.", ar:"حدث خطأ أثناء التسجيل ، يرجى المحاولة مرة أخرى في وقت لاحق."},
         password:{fr:"le mot de passe doit contenir au moins 8 caractère ", ar:"يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل"},
-        confirm:{fr:"les mot de pass ne sont pas identique", ar:"كلمات السر ليست متطابقة"}
+        password_confirmation:{fr:"les mot de pass ne sont pas identique", ar:"كلمات السر ليست متطابقة"},
+        ville:{fr:"vous devez choisir votre villle", ar:"يجب عليك اختيار مدينتك"}
     },
     validation:{fr:"vos information sont ajouté avec succès", ar:"تم إضافة معلوماتك بنجاح"}
 }

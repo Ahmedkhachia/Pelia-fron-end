@@ -1005,6 +1005,9 @@ ul, li {
   font-size: 1.2rem;
 }
 
+#objectif ul li {
+  color:#000;
+}
 /* features */
 
 

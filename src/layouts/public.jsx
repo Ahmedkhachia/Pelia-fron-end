@@ -18,7 +18,6 @@ import LangSwitcher from './../components/angSwitcher'
 
 
 import {
-  BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
