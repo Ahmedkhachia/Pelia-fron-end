@@ -44,8 +44,9 @@ exports.auth= async (req, res, next) =>{
                     expiresIn: '12h'
                 }
             );
+            delete loadedUser.password
             res.status(200).json({
-                token: token,
+                access_token: token,
                 user: loadedUser
             });
         })
@@ -93,5 +94,5 @@ exports.authPatient = (req, res) =>{
     req.session.id = req.body.id
     req.session.name = req.body.name
     
-    res.status(200).json({token: token, user: req.body })
+    res.status(200).json({access_token: token, user: req.body })
 }
