@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-// import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
+
+import {TextField, CssBaseline, Avatar, Paper, Grid, Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import {Row} from 'react-bootstrap'
-import Button  from './../components/Button/index';
-
 import {MdLockOpen, MdPersonAdd} from 'react-icons/md'
+import {Row} from 'react-bootstrap'
+
+import Button  from './../components/Button/index';
 import PeliaBanner from './../assets/img/pelia_banner.jpg'
-// import Axios
+
 import Axios  from 'axios';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import Cookie from 'js-cookie'
 
 const useStyles = makeStyles(theme => ({
@@ -71,7 +63,7 @@ export default function SignInSide() {
       email:email,
       password:pass
     }
-    Axios.post(`http://localhost:5000/login` , data, {headers: {'Content-Type': 'application/json'}})
+    Axios.post(`http://localhost:4300/login` , data, {headers: {'Content-Type': 'application/json'}})
     .then(res => {
         Cookie.set("token",res.data.access_token);
         Cookie.set("user",res.data.user);
@@ -106,7 +98,7 @@ export default function SignInSide() {
               onChange={handleChangephone}
               fullWidth
               id="email"
-              label="email"
+              label="Email"
               name="email"
               autoComplete="email"
               autoFocus
@@ -123,19 +115,10 @@ export default function SignInSide() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
             <Row className="align-items-center justify-content-around mt-4">
                 <Button success={success} type="submit" icone={MdPersonAdd} sending={sending} valeur="S'authentifier" />
             </Row>
             <Grid container>
-              <Grid item xs>
-                <Link to="/login" variant="body2">
-                  Mot de passe oublié?
-                </Link>
-              </Grid>
               <Grid item>
                 <Link to="/login" variant="body2">
                   {"Vous n'avez pas un compte ? S'inscrire"}

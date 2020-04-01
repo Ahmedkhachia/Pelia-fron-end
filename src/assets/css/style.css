@@ -1890,6 +1890,9 @@ margin-right: 2rem;
 margin-top: 1rem !important;
 background: #fff !important;
 }
+.newsletter-content .MuiPaper-root.MuiPaper-elevation1 .MuiInputBase-root{
+  margin-top: 0 !important;
+}
 label + .MuiInput-formControl{
   margin-top: 2rem !important;
 }
