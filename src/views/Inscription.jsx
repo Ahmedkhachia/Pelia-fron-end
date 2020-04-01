@@ -134,7 +134,7 @@ class ElementForm extends Component  {
              ){
                 let data = this.traitementDonnee();
                 console.log(data)
-                Axios.post(`http://localhost:8000/register` , data, {headers: {'Content-Type': 'application/json'}})
+                Axios.post(`http://localhost:8000/api/register` , data, {headers: {'Content-Type': 'application/json'}})
                 .then(res => {
                     this.setState({sending: false, success:true});
                     setTimeout(() => {

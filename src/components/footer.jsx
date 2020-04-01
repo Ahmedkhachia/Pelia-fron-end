@@ -87,7 +87,7 @@ function NewsLetter () {
         let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         let emailValid = re.test(String(email).toLowerCase());
         if(emailValid){
-            Axios.post(`http://localhost:8000/newsletter` , {email: email}, {headers: {'Content-Type': 'application/json'}})
+            Axios.post(`http://localhost:8000/api/newsletter` , {email: email}, {headers: {'Content-Type': 'application/json'}})
             .then(res => {
                 setMessageEnvoye(true)
                 setEmail("")

@@ -65,6 +65,7 @@ export default function SignInSide() {
     }
     Axios.post(`http://localhost:4300/login` , data, {headers: {'Content-Type': 'application/json'}})
     .then(res => {
+        console.log(res.data)
         Cookie.set("token",res.data.access_token);
         Cookie.set("user",res.data.user);
         Cookie.set("medecinAuth", res.data.user.nom)
@@ -73,7 +74,11 @@ export default function SignInSide() {
         setSending(false)
 
     })
-    .catch((error) =>{ console.log(error)})
+    .catch((error) =>{ 
+      setSending(false)
+      setSuccess(false)
+      setAuthentified(false)
+    })
   }
   if(authentified){
     return (<Redirect to="/video-call" />)
@@ -110,7 +115,7 @@ export default function SignInSide() {
               onChange={handleChangePass}
               fullWidth
               name="password"
-              label="Password"
+              label="Mot de passe"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -120,8 +125,8 @@ export default function SignInSide() {
             </Row>
             <Grid container>
               <Grid item>
-                <Link to="/login" variant="body2">
-                  {"Vous n'avez pas un compte ? S'inscrire"}
+                <Link to="/login">
+                  Vous n'avez pas un compte ? S'inscrire
                 </Link>
               </Grid>
             </Grid>
