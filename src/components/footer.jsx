@@ -122,9 +122,9 @@ function NewsLetter () {
                     }
                         <div className="newsletter-legal mt-3" style={style.text}>
                         {content.newsletter.body.traitement[lang]}
-                            <a href="/penet-et-vos-donnees-personnelles" style={{color:"#fff"}}>
+                            <Link to="/traitement-donnee" style={{color:"#fff"}}>
                             {content.newsletter.body.plus[lang]}
-                            </a>
+                            </Link>
                         </div>
                     </div>
             </Container>
