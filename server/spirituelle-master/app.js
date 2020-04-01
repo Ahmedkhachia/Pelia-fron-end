@@ -52,7 +52,7 @@ app.use(users)
 
 connection.sync()
           .then(result => {
-              app.listen(5000, () => console.log('Server ON'))
+              app.listen(4300, () => console.log('Server ON'))
           })
           .catch((err) => {
               console.log('error: ', err)
