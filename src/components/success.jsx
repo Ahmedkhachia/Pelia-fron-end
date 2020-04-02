@@ -127,11 +127,11 @@ export default function success(props) {
 
 let content = {
     title:{
-        fr:"nous sommes très honorés de vous compter parmis nous, et nous vous remircions infiniment de porté volontaire pour donner un coup de main à lapopulation dans cette situation difficile ",
+        fr:"Nous sommes très honorés de vous compter parmis nous et nous vous remercions infiniment de vous porter volontaire pour donner un coup de main durant cette période difficile",
         ar:"نحن فخورون جدًا بوجودك بيننا ، ونشكرك كثيرًا على تطوعك للمساعدة للسكان  في هذا الوضع الصعب "
     },
     subtitle:{
-        fr:"un résponsable vas vous contacter dans le brefs délais pour confirmer avec vous les information donnée et pour finaliser votre inscription",
+        fr:"Un responsable va vous contacter dans les plus brefs délais pour confirmer avec vous les informations données afin de finaliser avec vous votre inscription.",
         ar:"سيتصل بك الشخص المسؤول في أقرب وقت ممكن ليؤكد معك المعلومات المقدمة وإنهاء تسجيلك"
     }
 }

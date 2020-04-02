@@ -5,8 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Admin from './layouts/admin'
 import Public from './layouts/public'
 
-import ProtectedRoute from './ProtectedRoute'
 
+import Medecin from './layouts/medecin'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,7 +15,6 @@ import {
 
 import { withRouter } from "react-router";
 import NotFound from './layouts/notFound';
-import VideoCall from './components/videochat/app'
 
 
 class ScrollToTop extends React.Component {
@@ -47,10 +46,8 @@ class App extends Component {
     <Router>
       <ScrollToTopWithRouter />
         <Switch>
-            <ProtectedRoute path="/admin/pelia">
-              <Admin {...props} />
-            </ProtectedRoute>
-            <Route exact path={["/video-call", "/video-call/:name"]} render={props => <VideoCall {...props} />} />
+            <Route path="/profil" render={props =>  <Medecin {...props} /> } />
+            <Route exact path="/admin/pelia" render={props => <Admin {...props} />} />
             <Route path="/not-found" render={props => <NotFound {...props} />} />
             <Route path="/" render={props => <Public {...props} />} />
         </Switch>

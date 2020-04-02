@@ -1605,6 +1605,12 @@ height: 100vh;
 .MuiInput-underline:before{
   border-bottom: solid 1px rgb(54,149,235,.42) !important;
 }
+.MuiAvatar-root{
+  background-color: #007bff !important;
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+}
 
 /*----------------------------------------------------*/
 /* check box part
@@ -1908,7 +1914,7 @@ padding: 0.7rem 1.5rem;
   min-width: 110px;
   border-radius: 25px;
   cursor: pointer;
-  font-family: "Montserrat";
+  font-family: "Poppins";
   font-size: 14px;
   color: #fff;
   line-height: 1.2;

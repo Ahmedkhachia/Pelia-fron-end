@@ -1,72 +1,65 @@
 import React, { useState } from 'react';
 
-import {TextField, CssBaseline, Avatar, Paper, Grid, Typography} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Avatar, Typography,  ThemeProvider} from '@material-ui/core';
+import { FaMailBulk, FaKey } from 'react-icons/fa';
+import theme from './../theme/GlobalTheme'
 
 import {MdLockOpen, MdPersonAdd} from 'react-icons/md'
-import {Row} from 'react-bootstrap'
+import {Col, Row, Alert, Collapse } from 'react-bootstrap';
 
 import Button  from './../components/Button/index';
-import PeliaBanner from './../assets/img/pelia_banner.jpg'
+import Heart from './../assets/img/heart_hover.png'
+import medecin from './../assets/img/many-medecin.jpg'
+import InputField from './../components/Inputs/InputIcone/index'
 
 import Axios  from 'axios';
 import { Redirect, Link } from 'react-router-dom';
 import Cookie from 'js-cookie'
 import baseUrl from './../config'
 
-const useStyles = makeStyles(theme => ({
- 
-  image: {
-    backgroundImage: `url(${PeliaBanner})` ,
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'dark' ? theme.palette.grey[900] : theme.palette.grey[50],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+function SignInSide() {
 
-export default function SignInSide() {
-  const classes = useStyles();
   const [email, setPhone]= useState("")
   const [authentified, setAuthentified] = useState(false)
-  const [pass, setPass]= useState("")
+  const [password, setPass]= useState("")
   const [success, setSuccess]= useState(false)
   const [sending, setSending]= useState(false)
+  const [error, setError] =useState(false)
+  const [emailError, setEmailError]= useState(false)
+  const [passwordError, setPasswordError]= useState(false)
 
-  const handleChangephone = ( e ) =>{
+  const handleChange = ( e ) =>{
     setPhone(e.target.value)
   }
   const handleChangePass = ( e ) =>{
     setPass(e.target.value)
+  }
+  const validateField = (e) =>{
+    if(e.target.name === "email"){
+      let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      let emailErr = ! re.test(String(email).toLowerCase());
+      
+      setEmailError(emailErr)
+      if(emailErr){
+          return true
+      }
+    }else{
+      let passwordErr= password.length <= 8
+      setPasswordError(passwordErr)
+      if(passwordErr){
+          return true
+      }
+    }
   }
   const loginSending =(e) =>{
     e.preventDefault( )
     setSending(true)
     let data={
       email:email,
-      password:pass
+      password:password
     }
     Axios.post(`${baseUrl.node}login` , data, {headers: {'Content-Type': 'application/json'}})
     .then(res => {
-        console.log(res.data)
         Cookie.set("token",res.data.access_token);
         Cookie.set("user",res.data.user);
         Cookie.set("medecinAuth", res.data.user.nom)
@@ -75,66 +68,130 @@ export default function SignInSide() {
         setSending(false)
 
     })
-    .catch((error) =>{ 
+    .catch((error) =>{
       setSending(false)
       setSuccess(false)
       setAuthentified(false)
+      setError(true)
     })
   }
-  if(authentified){
-    return (<Redirect to="/video-call" />)
+
+  if(authentified || Cookie.get('medecinAuth') !== undefined){
+    return (<Redirect to="/profil/medecin" />)
   }
+
   return (
-    <Grid container component="main" >
-      <CssBaseline />
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <MdLockOpen />
-          </Avatar>
+    <ThemeProvider theme={theme}>     
+
+        <Col>
+          <Row className="justify-content-around">
+            <Avatar >
+              <MdLockOpen />
+            </Avatar>
+          </Row>
+          
           <Typography component="h1" variant="h5">
             Se connecter
           </Typography>
-          <form className={classes.form} noValidate onSubmit={loginSending}>
-            <TextField
-              margin="normal"
-              required
-              value={email}
-              onChange={handleChangephone}
-              fullWidth
-              id="email"
-              label="Email"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              value={pass}
-              onChange={handleChangePass}
-              fullWidth
-              name="password"
-              label="Mot de passe"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
+          <form noValidate onSubmit={loginSending}>
+            <Row className="inscription-input">
+                  <InputField 
+                  label="Email"
+                  Icone={FaMailBulk}
+                  placeholder= "abcd@gmail.com"
+                  name="email"
+                  error={emailError}
+                  required={true}
+                  onBlur={validateField} 
+                  value={email}
+                  onChange={handleChange} />                        
+              </Row>
+              <Row className="inscription-input">
+                  <Collapse in={emailError}>
+                      <div id="example-collapse-text">
+                          <Alert  variant="danger">
+                          L'adresse de messagerie que vous avez entrée est introuvable. Vérifiez votre adresse de messagerie
+                          </Alert>
+                      </div>
+                      </Collapse>
+                  </Row>
+                  <Row className="inscription-input">
+                  <InputField 
+                  label="Mot de passe" 
+                  Icone={FaKey}
+                  placeholder= "Mot de passe"
+                  name="password"
+                  error={emailError}
+                  required={true}
+                  type="password"
+                  id="password"
+                  fullWidth
+                  onBlur={validateField} 
+                  value={password}
+                  onChange={handleChangePass} />                        
+              </Row>
+          
+            <Row className="inscription-input" >
+                        <Collapse in={passwordError}>
+                            <div id="example-collapse-text">
+                                <Alert  variant="danger">
+                                le mot de passe doit contenir au moins 8 caractères 
+                                </Alert>
+                            </div>
+                        </Collapse>
+                    </Row>
+            <Row className="inscription-input">
+              <Collapse in={error}>
+                  <div id="example-collapse-text">
+                      <Alert  variant="danger">
+                      on n'a pas pus vous authentifier il semble que vos données sont incorrectes
+                      </Alert>
+                  </div>
+              </Collapse>
+              </Row>
             <Row className="align-items-center justify-content-around mt-4">
                 <Button success={success} type="submit" icone={MdPersonAdd} sending={sending} valeur="S'authentifier" />
             </Row>
-            <Grid container>
-              <Grid item>
-                <Link to="/login">
-                  Vous n'avez pas un compte ? S'inscrire
-                </Link>
-              </Grid>
-            </Grid>
-            
           </form>
-        </div>
-      </Grid>
-    </Grid>
+        </Col>
+      </ThemeProvider>
   );
+}
+
+
+export default function Inscription() {
+
+  return (
+      <div className="page">
+      <div id="inscription" className="inscription">
+
+          <Col lg="5" md="12" xs="12" style={{backgroundColor:"rgba(5,117,230, 0.8)"}}>
+              <div className="form-inscription" style={{background: `url(${medecin}) left`, backgroundSize:"cover"}}>
+                    <div style={{backgroundColor:"rgba(255,255,255, 0.9)", padding: "82px 55px 33px 55px"}}>
+                      <SignInSide  />  
+                    </div>
+              </div>
+          </Col>
+          <Col lg="7">
+          <section id="inscription-body" style={{background:`url(${Heart})`, backgroundSize:"cover"}}>
+  <div className="container">
+  <div className="overlay"></div>
+    <Row>
+      <div className="inscription-info">
+          <h1 data-wow-duration="700ms" data-wow-delay="500ms" className="wow bounceInDown animated">Bienvenue sur Pelia !</h1>
+          <p>vous ne savez pas de quoi il s'agit? vous êtes pérdus ? vous pouvez toujours aller à la page d'accueil pour voir les description des fonctionnalités qu'on propose à nos utilisateurs.</p>
+          <Link data-wow-duration="700ms" data-wow-delay="500ms" to="/medecin"
+              className="btn section-btn smoothScroll wow slideInUp animated">
+                voir la description
+          </Link>
+      </div>
+    </Row>
+  </div>
+</section>
+          </Col>
+
+             
+      </div>
+      </div>
+  )
 }

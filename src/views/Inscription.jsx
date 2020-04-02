@@ -9,7 +9,7 @@ import { Col,Row, Alert, Collapse } from 'react-bootstrap';
 import theme from './../theme/GlobalTheme'
 
 import PhoneField from './../components/Inputs/PhoneNumber/index';
-import InpusField from './../components/Inputs/InputIcone/index'
+import InputField from './../components/Inputs/InputIcone/index'
 import Button  from './../components/Button/index';
 import Heart from './../assets/img/heart_hover.png'
 import medecin from './../assets/img/many-medecin.jpg'
@@ -133,7 +133,6 @@ class ElementForm extends Component  {
             (this.state.sexe !== "")
              ){
                 let data = this.traitementDonnee();
-                console.log(data)
                 Axios.post(`${baseUrl.lumen}api/register` , data, {headers: {'Content-Type': 'application/json'}})
                 .then(res => {
                     this.setState({sending: false, success:true});
@@ -245,7 +244,7 @@ class ElementForm extends Component  {
             
                 <Col >
                     <Row className="inscription-input" style={style.text}>
-                        <InpusField
+                        <InputField
                         autoFocus={true}
                         error={fieldValidationErrors.nomError}
                         placeholder={content.form.input_nom.placeholder[lang]}
@@ -268,7 +267,7 @@ class ElementForm extends Component  {
                     </Collapse>
                     </Row>
                     <Row className="inscription-input" style={style.text}>
-                        <InpusField
+                        <InputField
                         placeholder={content.form.input_prenom.placeholder[lang]}
                         required={true}
                         error={fieldValidationErrors.prenomError}
@@ -313,7 +312,7 @@ class ElementForm extends Component  {
                         </Collapse>
                     </Row>
                     <Row className="inscription-input" style={style.text}>
-                        <InpusField label={content.form.input_email.label[lang]} Icone={FaMailBulk}
+                        <InputField label={content.form.input_email.label[lang]} Icone={FaMailBulk}
                         placeholder={content.form.input_email.placeholder[lang]}
                         name="email"
                         error={fieldValidationErrors.emailError}
@@ -442,7 +441,7 @@ class ElementForm extends Component  {
 let content = {
     title:{fr:"Bienvenue sur Pelia !", ar:"مرحبًا بك! Pelia!"},
     body:{
-        fr:"vous ne savez pas de quoi il s'agit? vous êtes pérdus ? vous pouvez toujours aller à la page d'accueil pour voir les description des fonctionnalités qu'on propose à nos utilisateurs.", 
+        fr:"vous ne savez pas de quoi il s'agit? vous êtes perdus ? vous pouvez toujours aller à la page d'accueil pour voir les description des fonctionnalités qu'on propose à nos utilisateurs.", 
         ar:"أنت لا تعرف من نحن؟ هل انت تائه وغير متيقن من تسجيلك؟ يمكنك دائمًا الانتقال إلى الصفحة الرئيسية لمعرفة الميزات التي نقدمها لمستخدمينا."
     },
     button:{fr:"voir la description", ar:"انظر الوصف"},
@@ -451,45 +450,45 @@ let content = {
         subtitle:{fr:"En nous rejoignant, vous aurez l'occasion de contribuer à aider de notre pays durant cette période difficile",
          ar:"من خلال الانضمام إلينا، ستتاح لك الفرصة للمساهمة في مساعدة البشرية خلال هذه الفترة الصعبة"},
         input_nom:{
-            label:{fr:"nom", ar:"الاسم"},
-            placeholder:{fr:"BERRADA", ar:"برادة"}
+            label:{fr:"Nom", ar:"الاسم"},
+            placeholder:{fr:"Votre nom", ar:"الاسم"}
         },
         input_prenom:{
-            label:{fr:"prénom", ar:"الاسم الأول"},
-            placeholder:{fr:"Nabil", ar:"عمر"}
+            label:{fr:"Prénom", ar:"الاسم الأول"},
+            placeholder:{fr:"Votre prénom", ar:"الاسم الأول"}
         },
         input_numero:{
-            label:{fr:"numéro de téléphone", ar:"رقم الهاتف"}
+            label:{fr:"Numéro de téléphone", ar:"رقم الهاتف"}
         },
         input_email:{
-            label:{fr:"email", ar:"البريد الإلكتروني"},
+            label:{fr:"Email", ar:"البريد الإلكتروني"},
             placeholder:{fr:"abcd@exemple.ma", ar:"abcd@exemple.ma"}
         },
         input_ville:{
-            label:{fr:"ville", ar:"المدينة"},
+            label:{fr:"Ville", ar:"المدينة"},
             placeholder:{fr:"youssoufia", ar:"اليوسفية"}
         },
         input_password:{
-            label:{fr:"mot de passe", ar:"كلمة السر"},
+            label:{fr:"Mot de passe", ar:"كلمة السر"},
             placeholder:{fr:"***", ar:"***"}
         },
         input_confirm:{
-            label:{fr:"confirmer votre mot de passe", ar:"أكد  كلمة السر"},
+            label:{fr:"Confirmer votre mot de passe", ar:"أكد  كلمة السر"},
             placeholder:{fr:"***", ar:"***"}
         },
-        button:{fr:"s'inscrire", ar:"تسجيل"}
+        button:{fr:"S'inscrire", ar:"تسجيل"}
     },
     error:{
-        nom:{fr:"vous devez entrer votre nom et doit contenir au moins 2 caractères", ar:"يجب إدخال اسمك ويجب أن يحتوي على حرفين على الأقل"},
-        prenom:{fr:"vous devez entrer votre prenom et doit contenir au moins 3 caractères", ar:"يجب إدخال اسمك الأول ويجب أن يحتوي على 3 أحرف على الأقل"},
-        phone:{fr:"le numéro de telephone doit contenir 12 chiffres y compris +212 au début", ar:"يجب أن يحتوي رقم الهاتف على 12 رقمًا بما في ذلك +212 في البداية"},
+        nom:{fr:"Vous devez entrer votre nom et doit contenir au moins 2 caractères", ar:"يجب إدخال اسمك ويجب أن يحتوي على حرفين على الأقل"},
+        prenom:{fr:"Vous devez entrer votre prenom et doit contenir au moins 3 caractères", ar:"يجب إدخال اسمك الأول ويجب أن يحتوي على 3 أحرف على الأقل"},
+        phone:{fr:"Le numéro de téléphone doit contenir 12 chiffres y compris +212 au début", ar:"يجب أن يحتوي رقم الهاتف على 12 رقمًا بما في ذلك +212 في البداية"},
         email:{fr:"Vous devez saisir une adresse e-mail valide au format standard" , ar:"يجب إدخال عنوان بريد إلكتروني صالح و بالشكل الموحد"},
         generale:{fr:"Une erreur est survenue lors de votre inscription, merci de réessayer ultérieurement.", ar:"حدث خطأ أثناء التسجيل ، يرجى المحاولة مرة أخرى في وقت لاحق."},
-        password:{fr:"le mot de passe doit contenir au moins 8 caractère ", ar:"يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل"},
-        password_confirmation:{fr:"les mot de pass ne sont pas identique", ar:"كلمات السر ليست متطابقة"},
-        ville:{fr:"vous devez choisir votre villle", ar:"يجب عليك اختيار مدينتك"}
+        password:{fr:"Le mot de passe doit contenir au moins 8 caractères ", ar:"يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل"},
+        password_confirmation:{fr:"Les mots de passe ne sont pas identiques", ar:"كلمات السر ليست متطابقة"},
+        ville:{fr:"Vous devez choisir votre ville", ar:"يجب عليك اختيار مدينتك"}
     },
-    validation:{fr:"vos information sont ajouté avec succès", ar:"تم إضافة معلوماتك بنجاح"}
+    validation:{fr:"Vos informations sont ajoutées avec succès", ar:"تم إضافة معلوماتك بنجاح"}
 }
 
 const villes = [
