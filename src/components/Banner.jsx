@@ -6,19 +6,12 @@ import TweenOne from 'rc-tween-one';
 
 import PeliaBanner from './../assets/img/pelia_banner.jpg'
 
-import { Link } from 'react-router-dom';
-
 import Cookies from 'js-cookie'
 
 
 let lang = Cookies.get('lang')
 lang = (lang === undefined)? "fr" : lang
 
-let style = (lang === "ar")? {
-  direction: 'rtl'  /* Right to Left */,
-}: {
-
-}
 
 const { Element } = BannerAnim;
 const BgElement = Element.BgElement;
@@ -105,7 +98,6 @@ function VideoShow(props) {
                       <span className="bannerPelia" style={{fontFamily:'Pacifico',fontSize:'90px'}} >Pelia </span>
                       {content.title[props.elm][lang]}
                     </h1>
-                    <Link style={style} data-wow-duration="700ms" data-wow-delay="500ms" to="/login" className="btn inscription-btn smoothScroll wow slideInUp animated"> <span > {content.button[lang]} </span> </Link>
               </div>
         </div>
     </div>
@@ -116,13 +108,13 @@ const content ={
     title : [
         {
         ar: " تمنحك فرصة الاتصال بطبيب من المنزل" , 
-        fr:" vous donne la possibilité de communiquer avec un médecin depuis chez vous"
+        fr:" Vous donne la possibilité de communiquer avec un médecin depuis chez vous"
     },{
         ar: "مع pelia لن تضطر إلى مغادرة منزلك لرؤية طبيبك" , 
-        fr:" plus besoin de quitter votre domicile pour voir votre médecin"
+        fr:" Plus besoin de quitter votre domicile pour voir votre médecin"
     },{
         ar: " تقديم المشورة لك وتجعلك على دراية بمرضك" ,
-        fr:" vous conseille et vous sensibilise à propos de votre maladie"
+        fr:" Vous conseille et vous sensibilise à propos de votre maladie"
     }
 ],
     button: {ar:"ابدأ المغامرة", fr:"Commencer"},

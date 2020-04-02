@@ -5,9 +5,6 @@ import{Col, Container, Row} from 'react-bootstrap'
 
 import Cookies from 'js-cookie'
 
-import { Link } from 'react-router-dom';
-
-
 import {TiMessages} from 'react-icons/ti'
 import {IoIosTimer} from 'react-icons/io'
 import {FaRegQuestionCircle} from 'react-icons/fa'
@@ -169,12 +166,12 @@ function Objectifs (){
                         }</Row>
                     </Col>
                 </Row>
-                <Row className="my-5 ">
+                {/* <Row className="my-5 ">
                     <div className="call-to-action home-info">
                     <Link data-wow-duration="500ms" data-wow-delay="200ms" to="/login" className="btn inscription-btn smoothScroll wow slideInUp animated"> <span> {HomeContent.objectifs.button[lang]} </span> </Link>
 
                     </div>
-                </Row>
+                </Row> */}
         </div>
     </section>
     )
@@ -185,7 +182,7 @@ let HomeContent = {
     quoi :{
         title:{fr:"Qu'est-ce que c'est ? " ,ar:"ما هذا ؟"},
         body:{
-            fr:"Pelia est une plateforme de téléconsultation médicale. Où vous pouvez rencontrer un médecin pour avoir une réponse, un conseil, un avis et un diagnostic médical si nécessaire, à portée de clic et sans avoir se déplacer.",
+            fr:"Pelia est une plateforme de téléconsultation médicale où vous pouvez rencontrer un médecin pour avoir une réponse, un conseil, un avis et un diagnostic médical si nécessaire, à portée de clic et sans avoir à se déplacer.",
             ar:"هي منصة للاستشارات الطبية عن بعد. حيث يمكنك مقابلة الطبيب للحصول على استجابة ونصيحة ونصيحة وتشخيص طبي إذا لزم الأمر ، بنقرة واحدة فقط دون الحاجة إلى السفر."
         }
     },
@@ -196,23 +193,23 @@ let HomeContent = {
                 title:{fr:"Demander consultation" ,ar:"طلب استشارة"}, 
                 date:{fr:"Première étape", ar:"المرحلة الأولى"},
                 body :{
-                    fr:"Vous voulez savoir plus sur Pélia?  Comment en bénéficier ? Vous avez besoin de nous poser une question? Le numéro de téléphone 0678046907 est mis à votre disposition." ,
-                     ar:"هل تريد معرفة المزيد عن Pélia؟ كيف تستفيد منه؟ هل تريد أن تسألنا سؤالاً؟ رقم الهاتف 0678046907 متاح لك."
+                    fr:"Vous voulez savoir plus sur Pelia?  Comment en bénéficier ? Vous avez besoin de nous poser une question? Le numéro de téléphone 0678046907 est mis à votre disposition." ,
+                     ar:"هل تريد معرفة المزيد عن Pelia؟ كيف تستفيد منه؟ هل تريد أن تسألنا سؤالاً؟ رقم الهاتف 0678046907 متاح لك."
                 }
             },
             card2:{
                 title:{fr:"Attendez votre tour" ,ar:"انتظر دورك"},
                 date:{fr:"Deuxième étape", ar:"الخطوة الثانية"},
                  body :{
-                     fr:"Après avoir envoyé un message Whatsapp. Notre système vous mettra sur la liste d'attente lorsque tous les patients devant vous partiront et qu'un médecin deviendra libre, vous serez averti pour entrer en contact avec lui." ,
+                     fr:"Après avoir envoyé un message Whatsapp, notre système vous mettra sur la liste d'attente lorsque tous les patients devant vous terminont leurs consultations et qu'un médecin deviendra libre. A ce moment, vous serez avertis pour entrer en contact avec médecin." ,
                   ar:"بعد إرسالك لرسالة نصية. سيضعك نظامنا في قائمة الانتظار عندما يرحل جميع المرضى أمامك ويصبح الطبيب مجانيًا ، سيتم إبلاغك"
                 }
                 },
             card3:{
-                title:{fr:"Contactez nous", ar:"تواصل معنا"}, 
+                title:{fr:"Contactez-nous", ar:"تواصل معنا"}, 
                 date:{fr:"Troisième étape", ar:"الخطوة الثالثة"},
                 body :{
-                    fr:"Et c'est fini maintenant vous êtes avec votre médecin. c'est à vous de jouer maintenant, vous devez expliquer au médecin la raison pour laquel vous voulez le contacter et lui va faire de son mieux pour répondre à vos questions." ,
+                    fr:"Maintenant, vous êtes en consultation avec votre médecin. C'est à vous de jouer. Vous devez expliquer au médecin la raison pour laquelle vous voulez le contacter. Le medecin va faire de son mieux pour répondre à vos questions." ,
                     ar:"وانتهى الأمر الآن مع طبيبك. الأمر متروك لك الآن ، يجب أن تشرح للأطباء سبب رغبتك في الاتصال به وسيبذل الطبيب قصارى جهده للإجابة على أسئلتك" 
                 }
             }
@@ -256,7 +253,7 @@ let HomeContent = {
             },
             {
                 image: grossesse,
-                title:{fr:"La période de grossesse", ar:"فترة الحمل"},
+                title:{fr:"La periode de grossesse", ar:"فترة الحمل"},
                 liste:[
                     {fr:"Découverte de grossesse", ar:"اكتشاف الحمل"},
                     {fr:"Conseils pour l’allaitement", ar:"نصائح للرضاعة الطبيعية"}

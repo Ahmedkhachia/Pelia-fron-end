@@ -1,20 +1,18 @@
-import React, { Component, useState, useRef } from 'react';
+import React, { Component, useState } from 'react';
 import Pusher from 'pusher-js';
 import Peer from 'simple-peer';
 import autoBind from 'react-autobind';
 import Axios from 'axios'
 import Cookies from 'js-cookie'
 
-import {Link, Redirect } from "react-router-dom";
-import Logo from '../logo'
+import { Redirect } from "react-router-dom";
 
 import baseUrl from './../../config'
 
-import { Paper, IconButton, CircularProgress} from '@material-ui/core';
+import {IconButton, CircularProgress, TextField} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import {Navbar, Nav, Button, Row, Col, Popover, OverlayTrigger, Collapse} from 'react-bootstrap'
+import { Button, Row, Col} from 'react-bootstrap'
 import {FaPhoneSlash, FaPhone, FaVideo, FaCheck} from 'react-icons/fa'
-import {GoClippy} from 'react-icons/go'
 import {TiMessages} from 'react-icons/ti'
 
 import callerTone from './../../assets/media/callertone.mp3'
@@ -41,47 +39,14 @@ export default function CallUsers(props){
     }
     return(
         <section>
-            <Header {...props} />
-            {
-                calling || isPatient ?
+            { calling || isPatient ?
                     <ElemenetsCall patient={patient} {...props} medecin ={isMedecin} regenereLien={() => setCalling(false)} /> :
                     <AddPatient {...props} idIdGenerated={(patient) => switchPage(patient)} medecin={medecin} />  
             }
-            
         </section>
     )
 }
-function Header(){
-    const [isToggle, setIsToggled] = useState(false)
-    return(
-        <header className="header-call">
-             <Navbar collapseOnSelect={true} onToggle={(etat) => setIsToggled(!etat)} style={{background: "#61ccff", boxShadow: "0px 0px 30px rgba(73, 78, 92, 1)", padding: 0}} expand="lg" as="nav">
-                <Row className="lg-mx-5 w-100"> 
-                    <Col lg="4" md="12" className="logo-container">
-                        <Row>
-                            <span to="/" className="navbar-brand"  > <Logo /> </span>
-                            <Navbar.Toggle aria-expanded={isToggle} aria-controls="basic-navbar-nav" className="mx-5 button-toggle" >
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                            </Navbar.Toggle>
-                        </Row>
-                    </Col>
-                    <Col lg={{ span: 6, offset: 2 }} id="nav-container">  
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav  as="ul" className="nav menu_nav" >
-                            <Nav.Item as="li"><Nav.Link as={Link} href='/' to="/"> accueil</Nav.Link></Nav.Item>
-                            <Nav.Item as="li"><Nav.Link as={Link} href='/about' to="/about">a propos</Nav.Link></Nav.Item>
-                            <Nav.Item as="li"><Nav.Link as={Link} href='/contact' to="/contact">contact</Nav.Link></Nav.Item>  
-                        </Nav>
-                    </Navbar.Collapse>
-                    </Col>
-                </Row>
-            </Navbar>
 
-        </header>
-    )
-}
 class ElemenetsCall extends Component {
     constructor(props) {
         super(props);
@@ -116,7 +81,7 @@ class ElemenetsCall extends Component {
             this.setState({user: {prenom: this.patientId}})
             Axios.post(`${baseUrl.node}video-call/patient`, { id: id, name: this.patientId})
             .then((res) => {
-            this.setupPusher(res.data.token);
+            this.setupPusher(res.data.access_token);
             }).catch((r) => console.error(r))
         }
     }
@@ -357,7 +322,8 @@ class ElemenetsCall extends Component {
                             <div className="layer"></div>
                             <Row className="text-center d-flex justify-content-around w-100 m-5">
                                  { !this.state.isMedecin &&
-                                <p className="text-center caller" style={{maxHeight: "20%"}}>  une appel entrante de la part de votre médecin <span className="name-caller">{this.state.callFrom}</span>  </p>
+                                <p className="text-center caller" style={{maxHeight: "20%"}}> Un appel entrant de la part de votre médecin
+                                <span className="name-caller">{this.state.callFrom}</span>  </p>
                             }
                             </Row>
                            { !this.state.isMedecin &&
@@ -437,12 +403,12 @@ class ElemenetsCall extends Component {
                         <Col sm="12" className="text-center mt-5">
                             <Row className="justify-content-around mx-5">
                                 <h3>
-                                   ici vous aurez la possibiliter d'appeler votre patient 
+                                vous aurez le choix d'appeler votre patient par un appel vidéo ou appel vocal. 
                                 </h3>
                             </Row>
                             <Row className="justify-content-around mx-5">
                             <h4>
-                                verifiez que votre patient a bien entrée sur la page d'appel avant de passer l'appel
+                            Vérifiez que votre patient est bien entrée sur la page d'appel avant de passer l'appel.
                             </h4>
                             </Row>
                             <Row className="justify-content-around mx-5">
@@ -471,7 +437,7 @@ class ElemenetsCall extends Component {
                             </Row>
                             <Row className="justify-content-around mx-5">
                                 <Button onClick={() => this.props.regenereLien()}>
-                                    regénerer un autre lien
+                                Régénérer un autre lien
                                 </Button>
                             </Row>
 
@@ -493,14 +459,14 @@ function PatientAcceuil() {
     return(
             <Col>
                 <Row className="justify-content-center my-5">
-                    <h4>ici vous pouvez communiquez avec votre médecin</h4>
+                    <h4>ici vous pouvez communiquer avec votre médecin</h4>
                 </Row>
                 <Row className="justify-content-center my-5">
                 <p>
-                    bonjours chère utilisateur bienvenue dans votre plateforme Pelia on est content de vous voir aujourd'hui
+                Bonjours cher utilisateur bienvenue dans votre plateforme Pelia on est content de vous voir aujourd'hui
                 </p>
                 <p>
-                    votre médecin à était notifier par votre présence ici il va vous appelez dans quelque instent veillez patientez
+                votre médecin a été notifier par votre présence ici il va vous appeler dans quelques instants veillez patientez.
                 </p>
                 </Row>
                 <Row className="justify-content-center my-5">
@@ -512,73 +478,60 @@ function PatientAcceuil() {
 }
 
 function AddPatient(props){
-    const [patient, setPatient] =useState("lsdsdjskdj")
+    const [patient, setPatient] =useState(Math.random().toString(36).substr(3, 9))
     const [copySuccess, setCopySuccess] = useState(false)
-    const [generteSuccess, setGenerateySuccess] = useState(false)
 
-    // const anchorEl = currentTarget
-    var refTextarea = useRef("");
 
     const genereId = () =>{
         let idGenerated =  Math.random().toString(36).substr(3, 9)
-        refTextarea.current.value = "http://localhost:3000/video-call/" + idGenerated;
         setPatient(idGenerated)
-        setGenerateySuccess(true)
     }
     const copyCodeToClipboard = (e) => {
         e.preventDefault()
-        refTextarea.current.select()
-        document.execCommand("copy")
         setCopySuccess(true)
         setTimeout(() => {
             props.idIdGenerated(patient)
-        }, 3000);
+        }, 400);
       }
-
+      const handleChange =(e) =>{
+          if(e.target.name === "link"){
+            e.target.select()
+          }
+         
+      }
+      
+ 
     return(
         <div className="generate-container"> 
         <Col>
             <Row className="text-center justify-content-around mt-5">
                 <h3>
-                    bonjour chère médecins <span style={{color:"#038DFE"}}> {props.medecin} </span>  bienvenue sur votre éspace utilisateur
+                    bonjour cher médecin <span style={{color:"#038DFE"}}> {props.medecin}</span>. Bienvenue dans votre espace utilisateur.
                 </h3>
             </Row>
             <Row className="my-5 justify-content-around ">
-                <Button variant="success" onClick={genereId}> {generteSuccess ? "regénérer un autre lien": "generer un lien"}  </Button>
-            </Row>
-            <Row className="my-5 justify-content-around ">
-            <Collapse in={generteSuccess}>
                 <div className= "link-container" style={{width:"70%"}} id="example-collapse-text">
-                    <div >
-                        <Paper component="form" onSubmit={copyCodeToClipboard}>
-                            <input className="MuiInputBase-input" type="text"  ref={refTextarea}  />
-                            <OverlayTrigger delay={{ show: 250, hide: 400 }} trigger= {['hover', 'focus']} placement="top" overlay={popover}>
-                            <IconButton style={ !copySuccess ? {backgroundColor:" rgb(168, 168, 168)"} : {backgroundColor: "rgba(0, 242, 96, 1)"}} className="copy-button" type="submit" aria-label="coupier le lien">
-                                <GoClippy color="#000" />
+                    <Col >
+                        <Row>
+                            <TextField 
+                            id="standard-basic" 
+                            label="Il faut envoyer le lien d’invitation au patient affin qi il puisse vous rejoindre dans l'appel" 
+                            fullWidth
+                            onChange={handleChange}
+                            onClick={handleChange}
+                            name="link"
+                            helperText="si vous avez partagé ce lien avec votre patient clicker sur le bouton pour aller à la page de l'appel"
+                            value={`${baseUrl.overlays}/profil/medecin/` + patient} 
+                            />
+                        </Row>
+                        <Row className="my-4 justify-content-around">
+                            <IconButton onClick={copyCodeToClipboard} className={ !copySuccess ? "copy-button" : "copy-button copy-success"} type="button" aria-label="coupier le lien">
+                                Démarrer la vidéo conférence
                             </IconButton>
-                            </OverlayTrigger>
-
-                        </Paper>
-                    </div>                   
-                   {copySuccess &&
-                   <Col>
-                    <Row className="justify-content-around mx-5">
-                       <p>
-                           vous serez redirigez vers la page des appels dans quelque instant vous pouvez toujours acceder au lien de votre patient au cas où vous l'avez perdue
-                       </p> 
-                      
-                    </Row>
-                    <Row  className="justify-content-around mx-5">
-                    <CircularProgress size={32} 
-                       style={{color: "rgb(0, 242, 96)"}}/>
-                    </Row>
-                   </Col>
-                  
-                   }
-                </div>
-                        
-            </Collapse>
-                
+                            <IconButton className="copy-button" onClick={genereId}>Générer un autre lien </IconButton>
+                        </Row>                        
+                    </Col>                   
+                </div>                
             </Row> 
         </Col>
                       
@@ -586,14 +539,6 @@ function AddPatient(props){
     )
 }
 
-const popover = (
-    <Popover id="popover-basic">
-      <Popover.Title as="h3">copier automatique</Popover.Title>
-      <Popover.Content>
-        afin de copier le lien <strong> et afficher </strong> la page d'appel clicker ici
-      </Popover.Content>
-    </Popover>
-  );
   
 const useStyles = makeStyles(theme => ({
     wrapper: {

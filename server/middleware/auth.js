@@ -13,7 +13,6 @@ module.exports = (req, res, next) => {
 
     try{
       decodedToken = jwt.verify(token, 'pelialaclesecurisepourmpbox');
-    
     }
     catch{
       const error = new Error('Invalid request !')
